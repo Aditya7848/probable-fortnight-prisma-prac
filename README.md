@@ -30,8 +30,7 @@ checkConnection();
    - So you give a name and since this is the first time we're making any changes to our table, I'm going to call it init. So we do d-name and then the name of the migration.
 
 3. "npx prisma generate" - This command generates prisma Client
-   - Without which you cannot access the 'user schema' you just created
-   - if you want to access user table that you have just created you cannot, you have to run npx prisma generate, after running you can access user in your code.
+   - if you want to access user table that you have just created you cannot, you have to run npx prisma generate, after running the command you can access user in your code.
    
    ```
    import { PrismaClient } from "@prisma/client";
