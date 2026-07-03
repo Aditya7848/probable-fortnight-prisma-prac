@@ -31,8 +31,8 @@
 
 2. if i made changes to git remote and commited them it is ahead of my local machine, how do you know git remote made changes in your git local ? git status giving me this branch is upto date with main
    -  ***git status only compares your local branch with your local copy of the remote branch. It does not contact GitHub.***
-     ```
-     git fetch
-     git pull
-     ```
+        ```
+        git fetch
+        git pull
+        ```
 3.
