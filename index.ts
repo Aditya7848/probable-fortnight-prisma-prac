@@ -20,7 +20,12 @@ app.get('/users', async(_, res) => {
   const users = await prisma.user.findMany({
     where:{age:{
       gt:35
-    }, isMarried:false}
+    }, isMarried:true},
+    select:{
+      name:true,
+      age:true,
+      isMarried:true
+    }
   })
   
   res.json(users);
