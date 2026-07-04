@@ -40,12 +40,12 @@ checkConnection();
 
 4.  Before you seed the data you have to delete the output line from generator why ?
 
-    ```
-    generator client {
-      provider = "prisma-client"
-      ~~ output   = "../generated/prisma" ~~
-    }
-    ```
+   ```
+   generator client {
+     provider = "prisma-client"
+     ~~output   = "../generated/prisma"~~
+   }
+   ```
 
     - Remove the generated folder at the root also ohterwise it wont seed why?
     - Run `npx prisma generate` again...
