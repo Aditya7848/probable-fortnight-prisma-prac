@@ -17,6 +17,6 @@ model User{
   name String
   email String @unique
   age Int
-  isMarried String
+  isMarried Boolean
   nationality String
 }

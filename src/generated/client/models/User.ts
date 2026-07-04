@@ -41,7 +41,7 @@ export type UserMinAggregateOutputType = {
   name: string | null
   email: string | null
   age: number | null
-  isMarried: string | null
+  isMarried: boolean | null
   nationality: string | null
 }
 
@@ -50,7 +50,7 @@ export type UserMaxAggregateOutputType = {
   name: string | null
   email: string | null
   age: number | null
-  isMarried: string | null
+  isMarried: boolean | null
   nationality: string | null
 }
 
@@ -194,7 +194,7 @@ export type UserGroupByOutputType = {
   name: string
   email: string
   age: number
-  isMarried: string
+  isMarried: boolean
   nationality: string
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
@@ -226,7 +226,7 @@ export type UserWhereInput = {
   name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   age?: Prisma.IntFilter<"User"> | number
-  isMarried?: Prisma.StringFilter<"User"> | string
+  isMarried?: Prisma.BoolFilter<"User"> | boolean
   nationality?: Prisma.StringFilter<"User"> | string
 }
 
@@ -247,7 +247,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringFilter<"User"> | string
   age?: Prisma.IntFilter<"User"> | number
-  isMarried?: Prisma.StringFilter<"User"> | string
+  isMarried?: Prisma.BoolFilter<"User"> | boolean
   nationality?: Prisma.StringFilter<"User"> | string
 }, "id" | "email">
 
@@ -273,7 +273,7 @@ export type UserScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   age?: Prisma.IntWithAggregatesFilter<"User"> | number
-  isMarried?: Prisma.StringWithAggregatesFilter<"User"> | string
+  isMarried?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   nationality?: Prisma.StringWithAggregatesFilter<"User"> | string
 }
 
@@ -281,7 +281,7 @@ export type UserCreateInput = {
   name: string
   email: string
   age: number
-  isMarried: string
+  isMarried: boolean
   nationality: string
 }
 
@@ -290,7 +290,7 @@ export type UserUncheckedCreateInput = {
   name: string
   email: string
   age: number
-  isMarried: string
+  isMarried: boolean
   nationality: string
 }
 
@@ -298,7 +298,7 @@ export type UserUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
-  isMarried?: Prisma.StringFieldUpdateOperationsInput | string
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
   nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -307,7 +307,7 @@ export type UserUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
-  isMarried?: Prisma.StringFieldUpdateOperationsInput | string
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
   nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -316,7 +316,7 @@ export type UserCreateManyInput = {
   name: string
   email: string
   age: number
-  isMarried: string
+  isMarried: boolean
   nationality: string
 }
 
@@ -324,7 +324,7 @@ export type UserUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
-  isMarried?: Prisma.StringFieldUpdateOperationsInput | string
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
   nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -333,7 +333,7 @@ export type UserUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
-  isMarried?: Prisma.StringFieldUpdateOperationsInput | string
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
   nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -386,6 +386,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -434,7 +438,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: string
     email: string
     age: number
-    isMarried: string
+    isMarried: boolean
     nationality: string
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -863,7 +867,7 @@ export interface UserFieldRefs {
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly age: Prisma.FieldRef<"User", 'Int'>
-  readonly isMarried: Prisma.FieldRef<"User", 'String'>
+  readonly isMarried: Prisma.FieldRef<"User", 'Boolean'>
   readonly nationality: Prisma.FieldRef<"User", 'String'>
 }
     
