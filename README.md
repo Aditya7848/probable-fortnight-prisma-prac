@@ -2,20 +2,16 @@
 
 [Github Docs on MarkDown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
 > [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
+ 
+
+> [!Important]
+> you changed the schema, and go straight for seeding data and failing, Please execute them in line
+> first create/apply migration `npx prisma migrate dev --name -yournewnameforschema`
+> second generate prisma client `npx prisma generate`
+> third seed the db `npx prisma db seed`
+
 
 1. You can check if you are connected to your NeonDB
 
@@ -45,32 +41,34 @@ checkConnection();
     - Well, the npx prisma will obviously get us to be able to execute Prisma commands. Then the migrate command is basically telling Prisma to apply the schema changes to our database. Then the dev over here is just to say to Prisma that this is all in development.
     - And then we can give a name for this migration. So every time you make changes to your tables in uh your posgress or whatever database you're using, it is good for you to keep track of all the different migrations that you did.
     - So you give a name and since this is the first time we're making any changes to our table, I'm going to call it init. So we do d-name and then the name of the migration.
+  
+3. For generating PrismaClient you have to pass in an adapter for version-7
+   - npm install @prisma/adapter-pg pg
+     ```
+     import { PrismaPg } from "@prisma/adapter-pg";
+     import { PrismaClient } from "../prisma/generated/client";
+     const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+     const prisma = new PrismaClient({ adapter });
+     ```
 
-3.  "npx prisma generate" - This command generates prisma Client
+4.  "npx prisma generate" - This command generates prisma Client
     - if you want to access user table that you have just created you cannot, you have to run npx prisma generate, after running you can access user in your code.
 
-      ```
-      import { PrismaClient } from "@prisma/client";
-      const prisma = new PrismaClient();
-      const users = await prisma.user.findMany();
-      ```
+5.  Before you seed the data you have to delete the output line from generator why ?
 
-4.  Before you seed the data you have to delete the output line from generator why ?
-
-```
-generator client {
-  provider = "prisma-client"
-  ~~output   = "../generated/prisma"~~
-}
-```
+      ```
+      generator client {
+        provider = "prisma-client"
+        ~~output   = "../generated/prisma"~~
+      }
+      ```
 
     - Remove the generated folder at the root also ohterwise it wont seed why?
     - Run `npx prisma generate` again...
 
-5.  for seed to run , if you encounter an error "No seed command configured" you have to add a seed property to the migration section in your prisma config file and NOT TO YOUR PACKAGE.JSON
+6.  for seed to run , if you encounter an error "No seed command configured" you have to add a seed property to the migration section in your prisma config file and NOT TO YOUR PACKAGE.JSON
 
-> [!Note]
-> PS E:\Practice\pedrotech-prisma> npx prisma db seed
+7. Failed seed `PS\Practice\pedrotech-prisma> npx prisma db seed`
 
       Loaded Prisma config from prisma.config.ts.
 
@@ -90,7 +88,7 @@ generator client {
           },
         })
 
-      > PS E:\Practice\pedrotech-prisma> npx prisma db seed
+8. Successfully ran seed command `PS E:\Practice\pedrotech-prisma> npx prisma db seed`
       Loaded Prisma config from prisma.config.ts.
 
       Running seed command `tsx prisma/seed.ts` ...
@@ -106,20 +104,19 @@ generator client {
 
       The seed command has been executed.
 
-6.  please for generate use a different path like the following
+9.  please for generate use a different path like the following
     ```
     generator client {
        provider = "prisma-client"
        output   = "../src/generated/client" // Set your custom folder here
      }
     ```
-7.      ```
+10.      ```
         const users = await prisma.user.findFirst()
         ```
 
   > [!CAUTION]
   > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
-
-
     
 
+    
