@@ -96,3 +96,10 @@ generator client {
       output   = "../src/generated/client" // Set your custom folder here
     }
    ```
+7. 
+
+    ```
+    const users = await prisma.user.findFirst()
+    ```
+8. > [!Note]
+    > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
