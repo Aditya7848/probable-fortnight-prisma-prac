@@ -32,8 +32,18 @@ checkConnection();
 3. "npx prisma generate" - This command generates prisma Client
    - if you want to access user table that you have just created you cannot, you have to run npx prisma generate, after running you can access user in your code.
 
-      ```
-      import { PrismaClient } from "@prisma/client";
-      const prisma = new PrismaClient();
-      const users = await prisma.user.findMany();
-      ```
+     ```
+     import { PrismaClient } from "@prisma/client";
+     const prisma = new PrismaClient();
+     const users = await prisma.user.findMany();
+     ```
+
+4. Before you seed the data you have to delete the output line from generator why ?
+   ```
+   generator client {
+     provider = "prisma-client"
+     ~~ output   = "../generated/prisma" ~~
+   }
+   ```
+
+   - Remove the generated folder at the root also ohterwise it wont seed why?
