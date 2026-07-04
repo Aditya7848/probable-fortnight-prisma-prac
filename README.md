@@ -40,20 +40,21 @@ checkConnection();
 
 4.  Before you seed the data you have to delete the output line from generator why ?
 
-   ```
-   generator client {
-     provider = "prisma-client"
-     ~~output   = "../generated/prisma"~~
-   }
-   ```
+```
+generator client {
+  provider = "prisma-client"
+  ~~output   = "../generated/prisma"~~
+}
+```
 
     - Remove the generated folder at the root also ohterwise it wont seed why?
     - Run `npx prisma generate` again...
 
 5.  for seed to run , if you encounter an error "No seed command configured" you have to add a seed property to the migration section in your prisma config file and NOT TO YOUR PACKAGE.JSON
 
-   > [!Note]
-   > PS E:\Practice\pedrotech-prisma> npx prisma db seed               
+> [!Note]
+> PS E:\Practice\pedrotech-prisma> npx prisma db seed
+
       Loaded Prisma config from prisma.config.ts.
 
       ⚠️ No seed command configured
@@ -87,3 +88,11 @@ checkConnection();
       (Use `node --trace-warnings ...` to show where the warning was created)
 
       The seed command has been executed.
+
+6. please for generate use a different path
+   ```
+   generator client {
+      provider = "prisma-client"
+      output   = "../src/generated/client" // Set your custom folder here
+    }
+   ```
