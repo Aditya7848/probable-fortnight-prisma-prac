@@ -89,32 +89,16 @@ generator client {
 
       The seed command has been executed.
 
-6. please for generate use a different path like the following
-   ```
-   generator client {
-      provider = "prisma-client"
-      output   = "../src/generated/client" // Set your custom folder here
-    }
-   ```
-7. 
+6.  please for generate use a different path like the following
+    ```
+    generator client {
+       provider = "prisma-client"
+       output   = "../src/generated/client" // Set your custom folder here
+     }
+    ```
+7.      ```
+        const users = await prisma.user.findFirst()
+        ```
 
-    ```
-    const users = await prisma.user.findFirst()
-    ```
-8. > [!CAUTION]
+    > [!Note]
     > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
