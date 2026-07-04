@@ -100,8 +100,8 @@ generator client {
         const users = await prisma.user.findFirst()
         ```
 
-    > [!CAUTION]
-    > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
+  > [!CAUTION]
+  > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
     
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
