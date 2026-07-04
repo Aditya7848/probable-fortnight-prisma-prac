@@ -42,7 +42,7 @@ checkConnection();
    ```
    generator client {
      provider = "prisma-client"
-     ~~ output   = "../generated/prisma" ~~
+     ~~output   = "../generated/prisma"~~
    }
    ```
 
