@@ -89,7 +89,7 @@ generator client {
 
       The seed command has been executed.
 
-6. please for generate use a different path
+6. please for generate use a different path like the following
    ```
    generator client {
       provider = "prisma-client"
