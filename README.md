@@ -6,7 +6,8 @@
 > PLEASE REMEMBER TO RESTART THE SERVER AFTER MAKING CHANGES TO YOUR CODE OR USE THE SCRIPT `tsx watch index.ts`
  
 
-> [!IMPORTANT]  you changed the schema, and go straight for seeding data and failing, Please execute them in line
+> [!Important]
+> you changed the schema, and go straight for seeding data and failing, Please execute them in line
 > first create/apply migration `npx prisma migrate dev --name -yournewnameforschema`
 > second generate prisma client `npx prisma generate`
 > third seed the db `npx prisma db seed`
