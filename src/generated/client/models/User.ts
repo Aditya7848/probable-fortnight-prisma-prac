@@ -28,56 +28,78 @@ export type AggregateUser = {
 
 export type UserAvgAggregateOutputType = {
   id: number | null
+  age: number | null
 }
 
 export type UserSumAggregateOutputType = {
   id: number | null
+  age: number | null
 }
 
 export type UserMinAggregateOutputType = {
   id: number | null
   name: string | null
   email: string | null
+  age: number | null
+  isMarried: boolean | null
+  nationality: string | null
 }
 
 export type UserMaxAggregateOutputType = {
   id: number | null
   name: string | null
   email: string | null
+  age: number | null
+  isMarried: boolean | null
+  nationality: string | null
 }
 
 export type UserCountAggregateOutputType = {
   id: number
   name: number
   email: number
+  age: number
+  isMarried: number
+  nationality: number
   _all: number
 }
 
 
 export type UserAvgAggregateInputType = {
   id?: true
+  age?: true
 }
 
 export type UserSumAggregateInputType = {
   id?: true
+  age?: true
 }
 
 export type UserMinAggregateInputType = {
   id?: true
   name?: true
   email?: true
+  age?: true
+  isMarried?: true
+  nationality?: true
 }
 
 export type UserMaxAggregateInputType = {
   id?: true
   name?: true
   email?: true
+  age?: true
+  isMarried?: true
+  nationality?: true
 }
 
 export type UserCountAggregateInputType = {
   id?: true
   name?: true
   email?: true
+  age?: true
+  isMarried?: true
+  nationality?: true
   _all?: true
 }
 
@@ -171,6 +193,9 @@ export type UserGroupByOutputType = {
   id: number
   name: string
   email: string
+  age: number
+  isMarried: boolean
+  nationality: string
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -200,12 +225,18 @@ export type UserWhereInput = {
   id?: Prisma.IntFilter<"User"> | number
   name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
+  age?: Prisma.IntFilter<"User"> | number
+  isMarried?: Prisma.BoolFilter<"User"> | boolean
+  nationality?: Prisma.StringFilter<"User"> | string
 }
 
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  age?: Prisma.SortOrder
+  isMarried?: Prisma.SortOrder
+  nationality?: Prisma.SortOrder
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -215,12 +246,18 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringFilter<"User"> | string
+  age?: Prisma.IntFilter<"User"> | number
+  isMarried?: Prisma.BoolFilter<"User"> | boolean
+  nationality?: Prisma.StringFilter<"User"> | string
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  age?: Prisma.SortOrder
+  isMarried?: Prisma.SortOrder
+  nationality?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -235,71 +272,106 @@ export type UserScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"User"> | number
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
+  age?: Prisma.IntWithAggregatesFilter<"User"> | number
+  isMarried?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  nationality?: Prisma.StringWithAggregatesFilter<"User"> | string
 }
 
 export type UserCreateInput = {
   name: string
   email: string
+  age: number
+  isMarried: boolean
+  nationality: string
 }
 
 export type UserUncheckedCreateInput = {
   id?: number
   name: string
   email: string
+  age: number
+  isMarried: boolean
+  nationality: string
 }
 
 export type UserUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UserUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UserCreateManyInput = {
   id?: number
   name: string
   email: string
+  age: number
+  isMarried: boolean
+  nationality: string
 }
 
 export type UserUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  isMarried?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  age?: Prisma.SortOrder
+  isMarried?: Prisma.SortOrder
+  nationality?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  age?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  age?: Prisma.SortOrder
+  isMarried?: Prisma.SortOrder
+  nationality?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  age?: Prisma.SortOrder
+  isMarried?: Prisma.SortOrder
+  nationality?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  age?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -314,33 +386,49 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   email?: boolean
+  age?: boolean
+  isMarried?: boolean
+  nationality?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   email?: boolean
+  age?: boolean
+  isMarried?: boolean
+  nationality?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   email?: boolean
+  age?: boolean
+  isMarried?: boolean
+  nationality?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
   id?: boolean
   name?: boolean
   email?: boolean
+  age?: boolean
+  isMarried?: boolean
+  nationality?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "age" | "isMarried" | "nationality", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
@@ -349,6 +437,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: number
     name: string
     email: string
+    age: number
+    isMarried: boolean
+    nationality: string
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -775,6 +866,9 @@ export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'Int'>
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
+  readonly age: Prisma.FieldRef<"User", 'Int'>
+  readonly isMarried: Prisma.FieldRef<"User", 'Boolean'>
+  readonly nationality: Prisma.FieldRef<"User", 'String'>
 }
     
 
