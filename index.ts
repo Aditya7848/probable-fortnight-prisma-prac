@@ -2,8 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import checkDBConnection from './connectDB';
 import { PrismaPg } from '@prisma/adapter-pg';
-import {PrismaClient} from './src/generated/client/client';
-
+import { PrismaClient } from './src/generated/client/client';
 
 const app = express();
 dotenv.config();
@@ -16,33 +15,34 @@ app.get('/', (req, res) => {
   res.send('Hello from server.');
 });
 
-app.get('/users', async(_, res) => {
+app.get('/users', async (_, res) => {
   const users = await prisma.user.findMany({
-    where:{age:{
-      gt:35
-    }, isMarried:true},
-    select:{
-      name:true,
+    where: {
+      isMarried: true,
+    },
+    select: {
+      name: true,
       age:true,
-      isMarried:true
-    }
-  })
-  
-  res.json(users);
-})
+      nationality:true,
 
+    },
+    orderBy: {
+      age: 'asc',
+    },
+    take: 10,
+  });
+
+  res.json(users);
+});
 
 const PORT = process.env.PORT || 8080;
 
-async function start(){
+async function start() {
   await checkDBConnection();
-
 
   app.listen(PORT, () => {
     console.log(`server is listening in on ${PORT}`);
   });
 }
 
-start().catch(err => console.log(err))
-
-
+start().catch((err) => console.log(err));
