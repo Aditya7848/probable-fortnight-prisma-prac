@@ -45,6 +45,13 @@ app.put('/users', async(req, res) => {
   res.json(updateUser);
 })
 
+app.delete('/users', async(req, res) => {
+  const deleteUser = await prisma.user.delete({
+    where:{email:'liam@email.com'}
+  })
+  res.json(deleteUser)
+})
+
 const PORT = process.env.PORT || 8080;
 
 async function start() {
