@@ -3,6 +3,9 @@ Content-Type:application/json
 
 
 ###
+DELETE http://localhost:8080/users
+Content-Type:application/json
 
+###
 DELETE http://localhost:8080/users
 Content-Type:application/json
