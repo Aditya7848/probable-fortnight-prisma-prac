@@ -35,6 +35,16 @@ app.get('/users', async (_, res) => {
   res.json(users);
 });
 
+app.put('/users', async(req, res) => {
+  const updateUser = await prisma.user.update({
+    where:{email:'liam@email.com'},
+    data:{
+      age:75
+    }
+  })
+  res.json(updateUser);
+})
+
 const PORT = process.env.PORT || 8080;
 
 async function start() {
